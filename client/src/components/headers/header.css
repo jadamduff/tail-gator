@@ -1,0 +1,45 @@
+.App-header {
+  background-color: #F44336;
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: middle;
+  color: white;
+  font-family: 'Staatliches';
+  font-weight: 400;
+}
+
+.header-container {
+  width: 1020px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.header-logo-image {
+  margin: 5px 0 0 50px
+}
+
+.header-logo-text {
+
+}
+
+.header-link {
+  float: right;
+  padding: 0 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+}
+
+.header-link-text, .header-link-text:hover, .header-link-text:active, .header-link-text:visited {
+  color: white;
+  font-family: 'Staatliches';
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.header-link-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
