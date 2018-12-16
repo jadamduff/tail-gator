@@ -14,11 +14,11 @@ class AppHeader extends Component {
     console.log('loggedIn: ', this.props.loggedIn)
     if (this.props.loggedIn) {
       return (
-        <span className="header-link-text" onClick={this.props.logout}>Logout</span>
+        <span className="header-link-text" onClick={this.props.logout}>LOGOUT</span>
       )
     } else {
       return (
-        <Link to="/login" className="header-link-text">Login</Link>
+        <Link to="/login" className="header-link-text">LOGIN</Link>
       )
     }
   }
@@ -32,6 +32,9 @@ class AppHeader extends Component {
       <div className="App-header">
         <div className="header-container">
           <img src={require('../../images/TailGator_logo2.png')} className="header-logo-image"/>
+          <div className="header-logo-text">
+            TAILGATOR
+          </div>
           <div className="header-link">
             {this.renderLink()}
           </div>

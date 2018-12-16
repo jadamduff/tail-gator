@@ -1,0 +1,16 @@
+.block {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  transition-delay: 300ms
+}
+
+.block-appear {
+  opacity: 0.01;
+  transition-delay: 300ms
+}
+.block-appear.block-appear-active {
+  opacity: 1;
+  transition: opacity 250ms ease;
+  transition-delay: 300ms
+}

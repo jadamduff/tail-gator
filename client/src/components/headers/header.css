@@ -5,7 +5,7 @@
   line-height: 60px;
   vertical-align: middle;
   color: white;
-  font-family: 'Staatliches';
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 400;
 }
 
@@ -16,11 +16,21 @@
 }
 
 .header-logo-image {
-  margin: 5px 0 0 50px
+  margin: 5px 0 0 50px;
+  display: inline-block;
 }
 
 .header-logo-text {
-
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+  padding: 0 0 0 20px;
+  display: inline-block;
+  margin-top: -90px;
 }
 
 .header-link {
@@ -29,13 +39,15 @@
   height: 60px;
   line-height: 60px;
   vertical-align: middle;
+  display: inline-block;
+  clear: right;
 }
 
 .header-link-text, .header-link-text:hover, .header-link-text:active, .header-link-text:visited {
   color: white;
-  font-family: 'Staatliches';
-  font-size: 18px;
-  font-weight: 400;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
   text-decoration: none;
 }
 

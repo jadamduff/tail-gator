@@ -92,7 +92,19 @@ export function checkAuth() {
 
 export function initialAuth() {
   return (dispatch) => {
-    dispatch({type: 'QUERY_INITIAL_AUTH', isAuthenticated: checkAuth()});
+    let auth = checkAuth();
+    dispatch({type: 'QUERY_INITIAL_AUTH', isAuthenticated: auth});
+    if (auth) {
+      return fetch('/api/v1/user_data', {
+        method: 'get',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(user => dispatch({type: 'LOAD_USER_DATA', user: user}))
+    }
   }
 }
 

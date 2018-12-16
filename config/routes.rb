@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'test_data' => 'test#test_data'
 
       resources :users, only: [:create]
+      get 'user_data' => 'users#user_data'
     end
   end
 end

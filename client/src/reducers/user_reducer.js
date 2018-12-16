@@ -44,6 +44,9 @@ export default function userReducer(state = {
         return state
       }
 
+    case 'LOAD_USER_DATA':
+      return {...state, id: action.user.id, name: action.user.name, email: action.user.email}
+
     default:
       return state
 
