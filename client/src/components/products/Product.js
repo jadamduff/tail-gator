@@ -10,6 +10,7 @@ const Product = (props) => {
 
   return (
     <div className="product-box" onClick={handleClick}>
+      <div className="product-box-price">{props.price}</div>
       <img src={require('../../images/' + props.image)} />
       <div className="product-name">{props.product.name}</div>
     </div>

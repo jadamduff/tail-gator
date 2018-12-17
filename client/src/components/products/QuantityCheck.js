@@ -12,7 +12,7 @@ const QuantityCheck = (props) => {
   return (
     <div className="screen-container">
       <div className="screen" onClick={handleScreenClick}></div>
-      <div className="bottom-drawer-md">
+      <div className="bottom-drawer-md slide-down-fast">
         <div className="inline-block">How many {props.pluralizedText}?</div>
         <QuantityForm />
       </div>

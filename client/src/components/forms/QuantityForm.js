@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { checkAuth, login } from '../../actions/users'
+import { createOrder } from '../../actions/orders'
 import './forms.css'
 import './quantity_form.css'
 
@@ -19,9 +19,16 @@ class QuantityForm extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if (!this.props.activeOrderExists) {
+      this.props.createOrder(this.props.userId, this.props.productId, parseInt(this.state.quantity));
+    }
+  }
+
   render() {
     return (
-      <form className="inline-form">
+      <form className="inline-form" onSubmit={(event) => this.handleSubmit(event)}>
         <input type="text" name="quantity" value={this.state.quantity} maxLength="1" onChange={(event) => this.handleChange(event)} />
         <input type="submit" className="blue-round-button" value="Add" />
       </form>
@@ -29,4 +36,12 @@ class QuantityForm extends Component {
   }
 }
 
-export default connect()(QuantityForm)
+const mapStateToProps = (state) => {
+  return {
+    activeOrderExists: state.order.activeOrderExists,
+    userId: state.user.id,
+    productId: state.products.selectedProduct
+  }
+}
+
+export default connect(mapStateToProps, { createOrder })(QuantityForm)

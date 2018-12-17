@@ -29,6 +29,7 @@ class Dashboard extends Component {
         <div className="dashboard-container">
           <WelcomeMessage name={this.props.user.name} />
           <ProductsListContainer />
+          <div style={{border: '1px solid #424242', width: '300px', height: '400px', display: 'inline-block', verticalAlign: 'top', margin: '0 0 0 50px'}}></div>
           {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProductPluralized} cancelSelectProduct={this.props.cancelSelectProduct}/>}
         </div>
       </div>
