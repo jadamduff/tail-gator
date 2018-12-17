@@ -6,7 +6,7 @@ import './dashboard.css'
 
 import WelcomeMessage from '../ui/WelcomeMessage'
 import ProductsListContainer from './ProductsListContainer'
-import OrderContainer from './OrderContainer'
+import ActiveOrderContainer from './ActiveOrderContainer'
 import QuantityCheck from '../products/QuantityCheck'
 
 import CSSTransition from 'react-transition-group/CSSTransition'
@@ -27,9 +27,9 @@ class Dashboard extends Component {
     return (
       <div>
         <div className="dashboard-container">
-          <WelcomeMessage name={this.props.user.name} />
-          <ProductsListContainer />
-          {this.props.productSelected && <OrderContainer />}
+          {!this.props.activeOrderExists && <WelcomeMessage name={this.props.user.name} />}
+          {!this.props.activeOrderExists && <ProductsListContainer />}
+          {this.props.activeOrderExists && <ActiveOrderContainer />}
           {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProduct.pluralized_name} cancelSelectProduct={this.props.cancelSelectProduct}/>}
         </div>
       </div>
@@ -41,7 +41,8 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     productSelected: state.products.productSelected,
-    selectedProduct: state.products.selectedProduct
+    selectedProduct: state.products.selectedProduct,
+    activeOrderExists: state.order.activeOrderExists
   }
 }
 

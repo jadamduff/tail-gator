@@ -22,7 +22,9 @@ class QuantityForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.props.activeOrderExists) {
-      this.props.createOrder(this.props.userId, this.props.productId, parseInt(this.state.quantity));
+      if (this.props.createOrder(this.props.userId, this.props.productId, parseInt(this.state.quantity))) {
+        this.props.closeDrawer();
+      }
     }
   }
 

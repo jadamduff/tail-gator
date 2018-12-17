@@ -6,6 +6,12 @@ export default function orderReducer(state = {
     case 'START_CREATE_ORDER_REQUEST':
       return state
 
+    case 'CREATE_ORDER_SUCCESS':
+      return {
+        ...action.order,
+        activeOrderExists: true
+      }
+
     default:
       return state
   }

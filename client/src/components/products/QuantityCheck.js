@@ -15,7 +15,17 @@ class QuantityCheck extends Component {
     }
   }
 
-  handleScreenClick = () => {
+  openDrawer = () => {
+    this.setState({
+      mount: true,
+      divClasses: {
+        screen: ['screen'],
+        topDrawerMd: ['top-drawer-md', 'top-drawer-md-mounted', 'slide-down-fast']
+      }
+    })
+  }
+
+  closeDrawer = () => {
     this.setState({
       mount: false,
       divClasses: {
@@ -25,14 +35,12 @@ class QuantityCheck extends Component {
     })
   }
 
+  handleScreenClick = () => {
+    this.closeDrawer();
+  }
+
   componentDidMount() {
-    this.setState({
-      mount: true,
-      divClasses: {
-        screen: ['screen'],
-        topDrawerMd: ['top-drawer-md', 'top-drawer-md-mounted', 'slide-down-fast']
-      }
-    })
+    this.openDrawer();
   }
 
   componentDidUpdate() {
@@ -47,7 +55,7 @@ class QuantityCheck extends Component {
         <div className={this.state.divClasses.screen.join(' ')} onClick={this.handleScreenClick}></div>
         <div className={this.state.divClasses.topDrawerMd.join(' ')}>
           <div className="inline-block">How many {this.props.pluralizedText}?</div>
-          <QuantityForm />
+          <QuantityForm closeDrawer={this.closeDrawer} />
         </div>
       </div>
     )

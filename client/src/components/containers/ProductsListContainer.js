@@ -11,7 +11,7 @@ class ProductsListContainer extends Component {
 
   render() {
     return (
-      <ProductsList products={this.props.products} selectProduct={this.props.selectProduct}/>
+      <ProductsList products={this.props.products} selectProduct={this.props.selectProduct} activeOrderExists={this.props.activeOrderExists} />
     )
   }
 }
@@ -20,7 +20,8 @@ const mapStateToProps = (state) => {
   return {
     products: state.products.products,
     productSelected: state.products.productSelected,
-    selectedProduct: state.products.selectedProduct
+    selectedProduct: state.products.selectedProduct,
+    activeOrderExists: state.order.activeOrderExists
   }
 }
 

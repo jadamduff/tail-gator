@@ -14,7 +14,7 @@ export function createOrder(user_id, product_id, product_quantity) {
     )
     .then(response => response.json())
     .then((resp) => {
-      console.log(resp)
+      dispatch({type: 'CREATE_ORDER_SUCCESS', order: resp})
       return true
     })
   }
