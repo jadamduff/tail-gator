@@ -17,9 +17,8 @@ export function getProducts() {
 }
 
 export function selectProduct(selectedProduct) {
-  const pluralizedArr = ['Hotdogs', 'Cheeseburgers', '2 Liter Sodas', 'Sunscreen Bottles', 'Bags of Charcoal', 'Cases of Beer']
   return (dispatch) => {
-    dispatch({type: 'USER_SELECTED_PRODUCT', selectedProduct: selectedProduct, pluralized: pluralizedArr[selectedProduct]})
+    dispatch({type: 'USER_SELECTED_PRODUCT', selectedProduct: selectedProduct})
   }
 }
 

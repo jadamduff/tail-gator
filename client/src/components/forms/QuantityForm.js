@@ -29,7 +29,7 @@ class QuantityForm extends Component {
   render() {
     return (
       <form className="inline-form" onSubmit={(event) => this.handleSubmit(event)}>
-        <input type="text" name="quantity" value={this.state.quantity} maxLength="1" onChange={(event) => this.handleChange(event)} />
+        <input type="number" name="quantity" value={this.state.quantity} maxLength="1" onChange={(event) => this.handleChange(event)} />
         <input type="submit" className="blue-round-button" value="Add" />
       </form>
     )
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => {
   return {
     activeOrderExists: state.order.activeOrderExists,
     userId: state.user.id,
-    productId: state.products.selectedProduct
+    productId: state.products.selectedProduct.id
   }
 }
 

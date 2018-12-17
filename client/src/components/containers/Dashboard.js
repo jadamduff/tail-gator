@@ -5,11 +5,11 @@ import { cancelSelectProduct } from '../../actions/products'
 import './dashboard.css'
 
 import WelcomeMessage from '../ui/WelcomeMessage'
-import ProductsListContainer from './ProductsListContainer';
-import Screen from '../ui/Screen'
+import ProductsListContainer from './ProductsListContainer'
+import OrderContainer from './OrderContainer'
 import QuantityCheck from '../products/QuantityCheck'
 
-import CSSTransition from 'react-transition-group/CSSTransition';
+import CSSTransition from 'react-transition-group/CSSTransition'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class Dashboard extends Component {
         <div className="dashboard-container">
           <WelcomeMessage name={this.props.user.name} />
           <ProductsListContainer />
-          <div style={{border: '1px solid #424242', width: '300px', height: '400px', display: 'inline-block', verticalAlign: 'top', margin: '0 0 0 50px'}}></div>
-          {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProductPluralized} cancelSelectProduct={this.props.cancelSelectProduct}/>}
+          {this.props.productSelected && <OrderContainer />}
+          {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProduct.pluralized_name} cancelSelectProduct={this.props.cancelSelectProduct}/>}
         </div>
       </div>
     )
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     productSelected: state.products.productSelected,
-    selectedProductPluralized: state.products.selectedProductPluralized
+    selectedProduct: state.products.selectedProduct
   }
 }
 

@@ -31,7 +31,7 @@
   opacity: 0.04
 }
 
-.bottom-drawer-md {
+.top-drawer-md {
   color: #424242;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
@@ -43,9 +43,17 @@
   vertical-align: middle;
   background-color: #fff;
   box-shadow: 0px 1px 6px rgba(158,158,158,0.1);
-  top: 0;
   left: 0;
-  right: 0;  
+  right: 0;
+}
+
+.top-drawer-md-enter {
+  transform: translate(0, -125px);
+}
+
+.top-drawer-md-enter-active {
+    transform: translate(0, 0);
+    transition: all 500ms ease-in;
 }
 
 .fade-in-fast {
@@ -63,6 +71,44 @@
        -o-animation: slide-down 250ms; /* Opera < 12.1 */
           animation: slide-down 250ms;
 }
+
+.slide-up-fast {
+  -webkit-animation: slide-up 250ms; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: slide-up 250ms; /* Firefox < 16 */
+      -ms-animation: slide-up 250ms; /* Internet Explorer */
+       -o-animation: slide-up 250ms; /* Opera < 12.1 */
+          animation: slide-up 250ms;
+}
+
+@keyframes slide-up {
+  from {top: 0; }
+  to   {top: -125px}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes slide-up {
+  from {top: 0; }
+  to   {top: -125px}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes slide-up {
+  from {top: 0; }
+  to   {top: -125px}
+}
+
+/* Internet Explorer */
+@-ms-keyframes slide-up {
+  from {top: 0; }
+  to   {top: -125px}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes slide-up {
+  from {top: 0; }
+  to   {top: -125px}
+}
+
 
 @keyframes slide-down {
   from {top: -125px; }
@@ -121,4 +167,14 @@
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
