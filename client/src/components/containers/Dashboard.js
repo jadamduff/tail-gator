@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { logout } from '../../actions/users'
+import { cancelSelectProduct } from '../../actions/products'
 import './dashboard.css'
+
+import WelcomeMessage from '../ui/WelcomeMessage'
+import ProductsListContainer from './ProductsListContainer';
+import Screen from '../ui/Screen'
+import QuantityCheck from '../products/QuantityCheck'
 
 import CSSTransition from 'react-transition-group/CSSTransition';
 
@@ -20,15 +26,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        Name: {this.props.user.name} Email: {this.props.user.email}
-        <button onClick={this.buttonClick}>Logout</button>
-        <CSSTransition
-          appear={true}
-          in={true}
-          timeout={300}
-          classNames="block">
-          <div className="block"></div>
-        </CSSTransition>
+        <div className="dashboard-container">
+          <WelcomeMessage name={this.props.user.name} />
+          <ProductsListContainer />
+          {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProductPluralized} cancelSelectProduct={this.props.cancelSelectProduct}/>}
+        </div>
       </div>
     )
   }
@@ -36,8 +38,10 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    productSelected: state.products.productSelected,
+    selectedProductPluralized: state.products.selectedProductPluralized
   }
 }
 
-export default connect(mapStateToProps, { logout })(Dashboard);
+export default connect(mapStateToProps, { logout, cancelSelectProduct })(Dashboard);

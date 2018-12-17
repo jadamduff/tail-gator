@@ -13,8 +13,8 @@ export function createUser(name, email, password) {
     )
     .then(response => response.json())
     .then((resp) => {
-        dispatch({type: 'CREATE_USER_SUCCESS', user: resp.user})
-        return getAuthToken(dispatch, resp.user.email, password);
+        dispatch({type: 'LOGIN_PENDING_TOKEN', user: resp.user})
+        getAuthToken(dispatch, email, password);
       }
     )
   }
@@ -35,14 +35,9 @@ export function login(email, password) {
     )
     .then(response => response.json())
     .then((resp) => {
-      console.log(resp)
-      if (resp.status === "Success") {
-        dispatch({type: 'LOGIN_SUCCESS', user: resp.user})
-        return getAuthToken(dispatch, resp.user.email, password);
-      } else {
-        console.log(resp.message)
-        dispatch({type: 'LOGIN_FAILURE', message: resp.message})
-      }
+      console.log(resp);
+      dispatch({type: 'LOGIN_PENDING_TOKEN', user: resp.user})
+      getAuthToken(dispatch, email, password);
     })
   }
 }
@@ -74,9 +69,8 @@ export function getAuthToken(dispatch, email, password) {
   )
   .then(response => response.json())
   .then((token) => {
-    dispatch({type: 'AUTH_SUCCESS'});
     localStorage.setItem("jwt", token.jwt);
-    console.log(localStorage.getItem('jwt'));
+    dispatch({type: 'AUTH_SUCCESS_AND_LOGIN'});
   });
 }
 
@@ -90,7 +84,7 @@ export function checkAuth() {
   }
 }
 
-export function initialAuth() {
+export function initialAuth(dispatch) {
   return (dispatch) => {
     let auth = checkAuth();
     dispatch({type: 'QUERY_INITIAL_AUTH', isAuthenticated: auth});

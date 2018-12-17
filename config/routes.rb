@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
       get 'test_data' => 'test#test_data'
 
+      get 'product_list' => 'products#product_list'
+
       resources :users, only: [:create]
       get 'user_data' => 'users#user_data'
     end

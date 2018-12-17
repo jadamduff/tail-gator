@@ -10,14 +10,11 @@ export default function userReducer(state = {
     case 'START_CREATE_USER_REQUEST':
       return {}
 
-    case 'CREATE_USER_SUCCESS':
-      return {...state, loggedIn: true, id: action.user.id, name: action.user.name, email: action.user.email}
-
     case 'START_LOGIN_REQUEST':
       return {}
 
-    case 'LOGIN_SUCCESS':
-      return {...state, loggedIn: true, id: action.user.id, name: action.user.name, email: action.user.email, loginFlash: null}
+    case 'LOGIN_PENDING_TOKEN':
+      return {...state, loggedIn: false, id: action.user.id, name: action.user.name, email: action.user.email, loginFlash: null}
 
     case 'LOGIN_FAILURE':
       console.log('failed')
@@ -34,8 +31,8 @@ export default function userReducer(state = {
         email: ''
       }
 
-    case 'AUTH_SUCCESS':
-      return {...state, isAuthenticated: true}
+    case 'AUTH_SUCCESS_AND_LOGIN':
+      return {...state, isAuthenticated: true, loggedIn: true}
 
     case 'QUERY_INITIAL_AUTH':
       if (action.isAuthenticated) {

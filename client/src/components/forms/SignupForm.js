@@ -52,7 +52,6 @@ class SignupForm extends Component {
           </div>
           <input type="submit" className="form_full_btn" value="Sign Up" />
         </form>
-        name: {this.props.name} email: {this.props.email}
       </div>
     )
   }
