@@ -24,13 +24,31 @@ export default function orderReducer(state = {
         activeOrderExists: true
       }
 
-    case 'LOGOUT_SUCCESS':
-      return {
+    case 'START_DELETE_LIST_ITEM_REQUEST':
+      return state
+
+    case 'DELETE_LIST_ITEM_REQUEST_SUCCESS':
+      if (action.order) {
+        return {
+          ...action.order,
+          activeOrderExists: true
+        }
+      } else {
+        return {
           activeOrderExists: false,
           order: {
             id: null
           }
         }
+      }
+
+    case 'LOGOUT_SUCCESS':
+      return {
+        activeOrderExists: false,
+        order: {
+          id: null
+        }
+      }
 
     default:
       return state
