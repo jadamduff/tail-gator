@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import ListItemListContainer from '../containers/ListItemListContainer'
 import '../ui/ui.css'
 import './order.css'
 
@@ -16,9 +18,7 @@ class Order extends Component {
     return (
       <div className={this.state.divClasses.orderContainer.join(' ')} style={{}}>
         <div className="active-order-header">Your Order</div>
-        <div className="active-order-list-item-container">
-          {this.props.order.list_items[0].list_item}
-        </div>
+        <ListItemListContainer listItems={this.props.order.list_items} />
         <div className="active-order-total-container">
           <div className="active-order-total-label">Total</div>
           <div className="active-order-total-amount">{this.props.order.order_total}</div>

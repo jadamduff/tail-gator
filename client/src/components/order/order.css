@@ -28,7 +28,7 @@
   border: 0px solid red;
 }
 
-.active-order-list-item-container {
+.active-order-list-item-list-container {
   height: 175px;
   font-size: 14px;
   font-family: 'Lato', sans-serif;
@@ -37,6 +37,26 @@
   text-align: left;
   margin: 15px 15px 10px 15px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.list-item-container {
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.list-item-container:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.list-item-desc {
+  float: left;
+}
+
+.list-item-total {
+  float: right;
+  color: #757575;
 }
 
 .active-order-total-container {

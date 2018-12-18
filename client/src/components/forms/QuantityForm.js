@@ -33,7 +33,7 @@ class QuantityForm extends Component {
   render() {
     return (
       <form className="inline-form" onSubmit={(event) => this.handleSubmit(event)}>
-        <input type="text" name="quantity" value={this.state.quantity} maxLength="2" onChange={(event) => this.handleChange(event)} />
+        <input type="text" name="quantity" value={this.state.quantity} maxLength="2" autoFocus={true} onChange={(event) => this.handleChange(event)} />
         <input type="submit" className="blue-round-button" value="Add" />
       </form>
     )

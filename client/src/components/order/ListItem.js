@@ -1,8 +1,11 @@
-import React from 'react',
+import React from 'react'
 
-const ListItem = (props) => {
+const ListItem = ({ listItem }) => {
   return (
-    <div>{props.listItem}</div>
+    <div className="list-item-container">
+      <div className="list-item-desc">{listItem.list_item}</div>
+      <div className="list-item-total">{listItem.list_item_total}</div>
+    </div>
   )
 }
 

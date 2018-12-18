@@ -13,7 +13,7 @@ class V1::OrdersController < ApplicationController
         return @order_product.quantity.to_s + ' ' + @product.name
       end
     end
-    initial_list_item = {list_item: initial_list_item_obj, list_item_total: ActionController::Base.helpers.number_with_precision((@product.price * params[:product_quantity]), :precision => 2)}
+    initial_list_item = {list_item: initial_list_item_obj, list_item_total: ActionController::Base.helpers.number_to_currency(@product.price * params[:product_quantity])}
 
     render :json => {order: @order, order_total: ActionController::Base.helpers.number_to_currency(@order.total), list_items: [initial_list_item]}
   end
