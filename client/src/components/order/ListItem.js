@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const ListItem = ({ listItem }) => {
-  return (
-    <div className="list-item-container fade-in-fast">
-      <div className="list-item-desc">{listItem.list_item}</div>
-      <div className="list-item-total">{listItem.list_item_total}</div>
-    </div>
-  )
+class ListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDeleteBtn: false
+    }
+  }
+
+  renderTotalorDeleteBtn = () => {
+    if (this.state.showDeleteBtn) {
+      return 'X'
+    } else {
+      return this.props.listItem.display_total
+    }
+  }
+
+  render() {
+    return (
+      <div className="list-item-container fade-in-fast">
+        <div className="list-item-desc">{this.props.listItem.description}</div>
+        <div className="list-item-total">{this.renderTotalorDeleteBtn()}</div>
+      </div>
+    )
+  }
 }
 
 export default ListItem;

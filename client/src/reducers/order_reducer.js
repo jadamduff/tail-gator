@@ -24,6 +24,14 @@ export default function orderReducer(state = {
         activeOrderExists: true
       }
 
+    case 'LOGOUT_SUCCESS':
+      return {
+          activeOrderExists: false,
+          order: {
+            id: null
+          }
+        }
+
     default:
       return state
   }
