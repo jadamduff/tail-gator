@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { createOrder } from '../../actions/orders'
+import { createOrder, addListItemToOrder } from '../../actions/orders'
 import './forms.css'
 import './quantity_form.css'
 
@@ -27,6 +27,9 @@ class QuantityForm extends Component {
       if (this.props.createOrder(this.props.userId, this.props.productId, parseInt(this.state.quantity))) {
         this.props.closeDrawer();
       }
+    } else {
+      if (this.props.addListItemToOrder(this.props.activeOrderId, this.props.productId, parseInt(this.state.quantity)))
+      this.props.closeDrawer();
     }
   }
 
@@ -43,9 +46,10 @@ class QuantityForm extends Component {
 const mapStateToProps = (state) => {
   return {
     activeOrderExists: state.order.activeOrderExists,
+    activeOrderId: state.order.order.id,
     userId: state.user.id,
     productId: state.products.selectedProduct.id
   }
 }
 
-export default connect(mapStateToProps, { createOrder })(QuantityForm)
+export default connect(mapStateToProps, { createOrder, addListItemToOrder })(QuantityForm)
