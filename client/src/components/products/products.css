@@ -1,7 +1,7 @@
 .product-box {
   width: 120px;
   height: 125px;
-  border: 1px solid #eee;
+  border: 1px solid #fff;
   border-radius: 3px;
   padding: 33px 20px 0 20px;
   margin: 10px;
@@ -12,6 +12,7 @@
   display: inline-block;
   vertical-align: top;
   position: relative;
+  box-shadow: 0 -1px 5px rgba(93,93,93,0.10), 0 3px 5px rgba(93,93,93,0.24);
 }
 
 .product-box:hover {

@@ -14,9 +14,11 @@ class QuantityForm extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+    if ((!isNaN(event.target.value) && parseInt(event.target.value) > 0 && event.target.value.indexOf('.') === -1) || event.target.value === '') {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
   }
 
   handleSubmit = (event) => {
@@ -31,7 +33,7 @@ class QuantityForm extends Component {
   render() {
     return (
       <form className="inline-form" onSubmit={(event) => this.handleSubmit(event)}>
-        <input type="number" name="quantity" value={this.state.quantity} maxLength="1" onChange={(event) => this.handleChange(event)} />
+        <input type="text" name="quantity" value={this.state.quantity} maxLength="2" onChange={(event) => this.handleChange(event)} />
         <input type="submit" className="blue-round-button" value="Add" />
       </form>
     )

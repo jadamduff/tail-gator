@@ -9,7 +9,7 @@ class ProductsList extends Component {
     super(props);
     this.state = {
       divClasses: {
-        productsListContainer: ['products-list-container', 'products-list-container-visible', 'fade-in-fast']
+        productsListContainer: ['products-list-container', 'products-list-container-visible']
       }
     }
   }

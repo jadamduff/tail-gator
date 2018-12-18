@@ -28,7 +28,7 @@ class Dashboard extends Component {
       <div>
         <div className="dashboard-container">
           {!this.props.activeOrderExists && <WelcomeMessage name={this.props.user.name} />}
-          {!this.props.activeOrderExists && <ProductsListContainer />}
+          {!this.props.activeOrderExists && <div className="fade-in-fast"><ProductsListContainer /></div>}
           {this.props.activeOrderExists && <ActiveOrderContainer />}
           {this.props.productSelected && <QuantityCheck pluralizedText={this.props.selectedProduct.pluralized_name} cancelSelectProduct={this.props.cancelSelectProduct}/>}
         </div>

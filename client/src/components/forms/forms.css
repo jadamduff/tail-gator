@@ -1,24 +1,20 @@
 .form_full_btn {
   height: 50px;
   width: 100%;
-  text-align: center;
+  border-radius: 25px;
+  border: 0px;
+  padding: 0 50px;
+  background-color: #1E88E5;
   line-height: 50px;
   vertical-align: middle;
-  background: #e9e9e9;
-  color: #424242;
-  font-size: 14px;
-  font-weight: 300;
+  color: #fff;
   font-family: 'Lato', sans-serif;
-  border-radius: 2px;
-  border: 1px solid #e0e0e0;
+  font-size: 16px;
   outline: 0;
-  text-decoration: none;
 }
 
 .form_full_btn:hover {
   cursor: pointer;
-  background: #e0e0e0;
-  color: #5f6c71;
 }
 
 .form_box_md_container {
@@ -32,12 +28,13 @@
 }
 
 .form_box_md {
-  border: 1px solid #eee;
+  border: 0px solid #eee;
   border-radius: 3px;
   padding: 20px 20px 15px 20px;
   text-align: left;
   background: #fff;
-  margin: 15px 0;
+  margin: 15px 0 25px 0;
+  box-shadow: 0 -1px 5px rgba(93,93,93,0.06), 0 3px 5px rgba(93,93,93,0.24);
 }
 
 .form_box_md div {
@@ -45,7 +42,7 @@
   font-size: 12px;
   margin: 5px 0;
   padding: 0;
-  color: #757575;
+  color: #424242;
   line-height: 10px;
 }
 
