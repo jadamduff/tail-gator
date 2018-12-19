@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'user_data' => 'users#user_data'
 
       resources :orders, only: [:create, :update, :destroy]
+      get 'active_order' => 'orders#active_order'
 
       resources :list_items, only: [:create, :destroy]
     end

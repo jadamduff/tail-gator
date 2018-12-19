@@ -61,6 +61,16 @@ class V1::OrdersController < ApplicationController
     render :json => {status: 'Order Destroyed'}
   end
 
+  def active_order
+    activeOrderExists = false
+    order = {id: nil}
+    if Order.where({user_id: current_user.id, in_progress: true}).exists
+      order = Order.where({user_id: current_user.id, in_progress: true}).last
+      activeOrderExists = true
+    end
+    render :json => {activeOrderExists: activeOrderExists, order: order, list_items: order.list_items}
+  end
+
   def set_order_total(order)
     total = 0
     order.list_items.each do |list_item|

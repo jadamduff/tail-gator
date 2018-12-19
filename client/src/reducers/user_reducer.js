@@ -1,4 +1,5 @@
 export default function userReducer(state = {
+  activeOrderChecked: false,
   loggedIn: false,
   id: '',
   name: '',
@@ -33,6 +34,12 @@ export default function userReducer(state = {
 
     case 'AUTH_SUCCESS_AND_LOGIN':
       return {...state, isAuthenticated: true, loggedIn: true}
+
+    case 'GET_ACTIVE_ORDER_SUCCESS':
+      return {
+        ...state,
+        activeOrderChecked: true
+      }
 
     case 'QUERY_INITIAL_AUTH':
       if (action.isAuthenticated) {

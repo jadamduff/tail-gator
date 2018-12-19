@@ -22,8 +22,11 @@ class Order extends Component {
         <div className="active-order-total-container">
           <div className="active-order-total-label">Total</div>
           <div className="active-order-total-amount">{this.props.order.order.display_total}</div>
-          <div className="active-order-submit-btn">FEED THE GATORS</div>
         </div>
+        <div className="active-order-location-input-container">
+          <input type="text" className="location-search-input" />
+        </div>
+        <div className="active-order-submit-btn">FEED THE GATORS</div>
       </div>
     )
   }

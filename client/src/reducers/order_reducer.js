@@ -6,6 +6,16 @@ export default function orderReducer(state = {
 }, action) {
   switch(action.type) {
 
+    case 'START_GET_ACTIVE_ORDER_REQUEST':
+      return state
+
+    case 'GET_ACTIVE_ORDER_SUCCESS':
+      if (action.order.activeOrderExists) {
+        return action.order
+      } else {
+        return state
+      }
+
     case 'START_CREATE_ORDER_REQUEST':
       return state
 

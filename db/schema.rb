@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_234718) do
+ActiveRecord::Schema.define(version: 2018_12_19_145746) do
 
   create_table "list_items", force: :cascade do |t|
     t.integer "product_id"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2018_12_18_234718) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "in_progress"
-    t.boolean "paid"
-    t.boolean "received"
+    t.boolean "in_progress", default: true
+    t.boolean "paid", default: false
+    t.boolean "received", default: false
   end
 
   create_table "products", force: :cascade do |t|

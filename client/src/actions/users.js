@@ -97,7 +97,25 @@ export function initialAuth(dispatch) {
         }
       })
       .then(response => response.json())
-      .then(user => dispatch({type: 'LOAD_USER_DATA', user: user}))
+      .then(user => {
+        dispatch({type: 'LOAD_USER_DATA', user: user});
+        return user
+      })
+      .then(() => {
+        dispatch({type: 'START_GET_ACTIVE_ORDER_REQUEST'})
+        return fetch('/api/v1/active_order', {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(resp => {
+          console.log('Active Order: ', resp)
+          dispatch({type: 'GET_ACTIVE_ORDER_SUCCESS', order: resp});
+        })
+      })
     }
   }
 }
