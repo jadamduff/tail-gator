@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { initialAuth } from '../../actions/users'
+import { getProducts } from '../../actions/products'
 import './App.css';
 
 import AppHeader from '../headers/AppHeader'
@@ -14,6 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.initialAuth();
+    this.props.getProducts();
   }
 
   renderComponents() {
@@ -41,4 +43,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { initialAuth })(App);
+export default connect(mapStateToProps, { initialAuth, getProducts })(App);

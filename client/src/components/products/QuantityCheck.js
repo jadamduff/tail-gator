@@ -45,7 +45,7 @@ class QuantityCheck extends Component {
 
   componentDidUpdate() {
     if (!this.state.mount) {
-      setTimeout(this.props.cancelSelectProduct, 250);
+      setTimeout(this.props.cancelSelectProduct, 150);
     }
   }
 

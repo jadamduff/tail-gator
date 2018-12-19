@@ -14,6 +14,7 @@ export function createOrder(user_id, product_id, product_quantity) {
     )
     .then(response => response.json())
     .then((resp) => {
+      console.log(resp)
       dispatch({type: 'CREATE_ORDER_SUCCESS', order: resp})
       return true
     })
@@ -36,6 +37,7 @@ export function addListItemToOrder(order_id, product_id, product_quantity) {
     )
     .then(response => response.json())
     .then((resp) => {
+      console.log(resp)
       dispatch({type: 'ADD_LIST_ITEM_TO_ORDER_REQUEST_SUCCESS', order: resp})
       return true
     })

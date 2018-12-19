@@ -21,7 +21,7 @@ class Order extends Component {
         <ListItemListContainer listItems={this.props.order.list_items} />
         <div className="active-order-total-container">
           <div className="active-order-total-label">Total</div>
-          <div className="active-order-total-amount">{this.props.order.order_total}</div>
+          <div className="active-order-total-amount">{this.props.order.order.display_total}</div>
           <div className="active-order-submit-btn">FEED THE GATORS</div>
         </div>
       </div>

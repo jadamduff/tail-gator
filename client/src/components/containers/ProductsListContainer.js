@@ -5,10 +5,7 @@ import { getProducts, selectProduct, cancelSelectProduct } from '../../actions/p
 import CSSTransition from 'react-transition-group/CSSTransition';
 
 class ProductsListContainer extends Component {
-  componentDidMount() {
-    this.props.getProducts();
-  }
-
+  
   render() {
     return (
       <ProductsList products={this.props.products} selectProduct={this.props.selectProduct} activeOrderExists={this.props.activeOrderExists} />
@@ -25,4 +22,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getProducts, selectProduct })(ProductsListContainer)
+export default connect(mapStateToProps, { selectProduct })(ProductsListContainer)

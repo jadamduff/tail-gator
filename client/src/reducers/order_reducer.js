@@ -28,7 +28,7 @@ export default function orderReducer(state = {
       return state
 
     case 'DELETE_LIST_ITEM_REQUEST_SUCCESS':
-      if (action.order) {
+      if (action.order.order) {
         return {
           ...action.order,
           activeOrderExists: true
