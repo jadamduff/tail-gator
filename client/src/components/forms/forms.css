@@ -80,3 +80,55 @@
 .form_box_md input[type=checkbox] {
   margin-bottom: 20px
 }
+
+
+.location-search-input {
+  text-align: left;
+  width: 90%;
+  height: 50px;
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  color: #424242;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.autocomplete-dropdown-container {
+  height: auto;
+  position: absolute;
+  top: 325px;
+  z-index: 5;
+  border: 0px solid blue;
+  line-height: 25px
+}
+
+.suggestion-item {
+  height: 25px;
+  width: 300px;
+  line-height: 25px;
+  vertical-align: middle;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-family: 'Lato'. sans-serif;
+  background-color: #fff;
+  color: #616161;
+}
+
+.suggestion-item-active {
+  height: 25px;
+  width: 300px;
+  line-height: 25px;
+  vertical-align: middle;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-family: 'Lato'. sans-serif;
+  background-color: #eee;
+  color: #616161;
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import ListItemListContainer from '../containers/ListItemListContainer'
+import LocationSearchInput from '../forms/LocationSearchInput'
 import '../ui/ui.css'
 import './order.css'
 
@@ -10,7 +11,8 @@ class Order extends Component {
     this.state = {
       divClasses: {
         orderContainer: ['fade-in-fast', 'inner-active-order-container']
-      }
+      },
+      placeHolderText: 'Enter a tailgate location...'
     }
   }
 
@@ -24,7 +26,7 @@ class Order extends Component {
           <div className="active-order-total-amount">{this.props.order.order.display_total}</div>
         </div>
         <div className="active-order-location-input-container">
-          <input type="text" className="location-search-input" />
+          <LocationSearchInput />
         </div>
         <div className="active-order-submit-btn">FEED THE GATORS</div>
       </div>

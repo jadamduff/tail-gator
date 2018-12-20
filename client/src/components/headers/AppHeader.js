@@ -31,7 +31,7 @@ class AppHeader extends Component {
     return (
       <div className="App-header">
         <div className="header-container">
-          <img src={require('../../images/TailGator_logo2.png')} className="header-logo-image"/>
+          <img src={require('../../images/TailGator_logo3.png')} className="header-logo-image"/>
           <div className="header-logo-text">
             TAILGATOR
           </div>
