@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateOrderLocation } from '../../actions/orders'
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -6,10 +8,10 @@ import PlacesAutocomplete, {
 
 import './forms.css'
 
-export default class LocationSearchInput extends Component {
+class LocationSearchInput extends Component {
   constructor(props) {
     super(props);
-    this.state = { address: '' };
+    this.state = { address: this.props.address };
   }
 
   handleChange = address => {
@@ -23,7 +25,7 @@ export default class LocationSearchInput extends Component {
         this.setState({
           address: address
         })
-        console.log('Success', latLng)
+        this.props.updateOrderLocation(this.props.orderId, address, latLng.lat, latLng.lng)
       })
       .catch(error => console.error('Error', error));
   };
@@ -66,7 +68,7 @@ export default class LocationSearchInput extends Component {
                         className,
                       })}
                     >
-                      <img src={require('../../images/location_icon2.png')} style={{margin: '0 5px 0 0'}}/>'<span style={{overflow: 'hidden', textOverflow: 'hidden'}}>{this.truncateString(suggestion.description)}</span>
+                      <img src={require('../../images/location_icon2.png')} style={{margin: '0 5px 0 0'}}/><span>{this.truncateString(suggestion.description)}</span>
                     </div>
                   );
                 }
@@ -78,3 +80,5 @@ export default class LocationSearchInput extends Component {
     );
   }
 }
+
+export default connect(null, { updateOrderLocation })(LocationSearchInput)

@@ -26,7 +26,7 @@ class Order extends Component {
           <div className="active-order-total-amount">{this.props.order.order.display_total}</div>
         </div>
         <div className="active-order-location-input-container">
-          <LocationSearchInput />
+          <LocationSearchInput orderId={this.props.order.order.id} address={this.props.order.order.address}/>
         </div>
         <div className="active-order-submit-btn">FEED THE GATORS</div>
       </div>

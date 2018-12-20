@@ -52,6 +52,15 @@ export default function orderReducer(state = {
         }
       }
 
+    case 'START_UPDATE_ORDER_LOCATION_REQUEST':
+      return state
+
+    case 'UPDATE_ORDER_LOCATION_REQUEST_SUCCESS':
+      return {
+        ...action.order,
+        activeOrderExists: true
+      }
+
     case 'LOGOUT_SUCCESS':
       return {
         activeOrderExists: false,
