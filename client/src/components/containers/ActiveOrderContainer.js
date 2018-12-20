@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { updateOrderStatus } from '../../actions/orders'
 
 import ProductsListContainer from './ProductsListContainer'
 import Order from '../order/Order'
@@ -15,7 +16,7 @@ class ActiveOrderContainer extends Component {
           <ProductsListContainer />
         </div>
         <div className="active-order-container">
-          <Order order={this.props.order} />
+          <Order order={this.props.order} updateOrderStatus={this.props.updateOrderStatus}/>
         </div>
       </div>
     )
@@ -28,4 +29,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ActiveOrderContainer)
+export default connect(mapStateToProps, { updateOrderStatus })(ActiveOrderContainer)

@@ -66,3 +66,25 @@ export function updateOrderLocation(order_id, address, lat, lng) {
     })
   }
 }
+
+export function updateOrderStatus(order_id, status) {
+  return (dispatch) => {
+    dispatch({type: 'START_UPDATE_ORDER_STATUS_REQUEST'});
+    let body = JSON.stringify({request_type: 'Update Status', status: status})
+    return fetch('/api/v1/orders/' + order_id,
+      {
+        method: 'PATCH',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+          'Content-Type': 'application/json'
+        },
+        body: body
+      }
+    )
+    .then(response => response.json())
+    .then(resp => {
+      console.log(resp)
+      dispatch({type: 'UPDATE_ORDER_STATUS_REQUEST_SUCCESS', order: resp})
+    })
+  }
+}

@@ -16,6 +16,10 @@ class Order extends Component {
     }
   }
 
+  handleBtnClick = () => {
+    this.props.updateOrderStatus(this.props.order.order.id, 'Complete')
+  }
+
   render() {
     return (
       <div className={this.state.divClasses.orderContainer.join(' ')} style={{}}>
@@ -28,7 +32,7 @@ class Order extends Component {
         <div className="active-order-location-input-container">
           <LocationSearchInput orderId={this.props.order.order.id} address={this.props.order.order.address}/>
         </div>
-        <div className="active-order-submit-btn">FEED THE GATORS</div>
+        <div className="active-order-submit-btn" onClick={this.handleBtnClick}>FEED THE GATORS</div>
       </div>
     )
   }

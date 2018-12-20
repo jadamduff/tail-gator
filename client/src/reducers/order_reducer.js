@@ -29,10 +29,7 @@ export default function orderReducer(state = {
       return state
 
     case 'ADD_LIST_ITEM_TO_ORDER_REQUEST_SUCCESS':
-      return {
-        ...action.order,
-        activeOrderExists: true
-      }
+      return action.order
 
     case 'START_DELETE_LIST_ITEM_REQUEST':
       return state
@@ -56,10 +53,13 @@ export default function orderReducer(state = {
       return state
 
     case 'UPDATE_ORDER_LOCATION_REQUEST_SUCCESS':
-      return {
-        ...action.order,
-        activeOrderExists: true
-      }
+      return action.order
+      
+    case 'START_UPDATE_ORDER_STATUS_REQUEST':
+      return state
+
+    case 'UPDATE_ORDER_STATUS_REQUEST_SUCCESS':
+      return action.order
 
     case 'LOGOUT_SUCCESS':
       return {
