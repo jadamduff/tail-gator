@@ -17,7 +17,7 @@ class Order extends Component {
   }
 
   handleBtnClick = () => {
-    this.props.updateOrderStatus(this.props.order.order.id, 'Complete')
+    this.props.updateOrderStatus(this.props.order.order.id, 'Submitted')
   }
 
   render() {

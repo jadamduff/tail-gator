@@ -31,6 +31,17 @@
   opacity: 0.04
 }
 
+.screen-dark {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #212121;
+  opacity: 0.25
+}
+
 .top-drawer-md {
   color: #424242;
   font-family: 'Lato', sans-serif;
