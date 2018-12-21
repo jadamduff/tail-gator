@@ -9,10 +9,10 @@ export default function userReducer(state = {
   switch(action.type) {
 
     case 'START_CREATE_USER_REQUEST':
-      return {}
+      return state
 
     case 'START_LOGIN_REQUEST':
-      return {}
+      return state
 
     case 'LOGIN_PENDING_TOKEN':
       return {...state, loggedIn: false, id: action.user.id, name: action.user.name, email: action.user.email, loginFlash: null}
@@ -22,15 +22,19 @@ export default function userReducer(state = {
       return {...state, loginFlash: action.message}
 
     case 'START_LOGOUT_REQUEST':
-      return {}
+      return state
 
     case 'LOGOUT_SUCCESS':
       return {
+        activeOrderChecked: false,
         loggedIn: false,
         id: '',
         name: '',
         email: ''
       }
+
+    case 'CREATE_USER_AUTH_SUCCESS_AND_LOGIN':
+      return {...state, isAuthenticated: true, loggedIn: true, activeOrderChecked: true}
 
     case 'AUTH_SUCCESS_AND_LOGIN':
       return {...state, isAuthenticated: true, loggedIn: true}
@@ -42,6 +46,7 @@ export default function userReducer(state = {
       }
 
     case 'QUERY_INITIAL_AUTH':
+    console.log('Blahasdasdfasd')
       if (action.isAuthenticated) {
         return {...state, loggedIn: true}
       } else {

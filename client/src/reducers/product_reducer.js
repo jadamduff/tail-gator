@@ -20,7 +20,7 @@ export default function productReducer(state = {
 
     case 'LOGOUT_SUCCESS':
       return {
-        products: [],
+        ...state,
         productSelected: false,
         selectedProduct: null
       }

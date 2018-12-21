@@ -13,10 +13,12 @@ export function createUser(name, email, password) {
     )
     .then(response => response.json())
     .then((resp) => {
-        dispatch({type: 'LOGIN_PENDING_TOKEN', user: resp.user})
-        getAuthToken(dispatch, email, password);
-      }
-    )
+      dispatch({type: 'LOGIN_PENDING_TOKEN', user: resp.user})
+      getAuthToken(dispatch, email, password);
+    })
+    .then(() => {
+      dispatch({type: 'CREATE_USER_AUTH_SUCCESS_AND_LOGIN'})
+    })
   }
 }
 
