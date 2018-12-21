@@ -17,6 +17,36 @@
   cursor: pointer;
 }
 
+.blue-round-button {
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  border: 0px;
+  padding: 0 50px;
+  background-color: #1E88E5;
+  line-height: 40px;
+  vertical-align: middle;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  outline: 0;
+}
+
+#dropin-submit-btn {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  margin-left: -75px;
+}
+
+.braintree-placeholder {
+  display: none
+}
+
+.braintree-show-card {
+  margin: 20px 0 0 0;
+}
+
 .form_box_md_container {
   width: 325px;
   margin: 30px auto 75px auto;

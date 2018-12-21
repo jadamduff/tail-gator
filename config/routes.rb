@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       get 'active_order' => 'orders#active_order'
 
       resources :list_items, only: [:create, :destroy]
+
+      get 'braintree_client_token' => 'transactions#client_token'
+      post 'transactions' => 'transactions#create'
+
     end
   end
 end

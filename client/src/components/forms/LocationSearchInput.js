@@ -38,6 +38,12 @@ class LocationSearchInput extends Component {
     }
   }
 
+  renderFlash = () => {
+    if (this.props.flash) {
+      return (<div className="suggestion-item" style={{color: 'red', padding: '0 0 0 20px', margin: '5px 0 0 0', border: '0px solid blue', height: '10px', lineHeight: '10px'}}>{this.props.flash}</div>)
+    }
+  }
+
   render() {
     return (
       <PlacesAutocomplete
@@ -49,12 +55,13 @@ class LocationSearchInput extends Component {
           <div>
             <input
               {...getInputProps({
-                placeholder: 'Enter tailgate location...',
+                placeholder: 'Enter a tailgate location...',
                 className: 'location-search-input',
                 spellCheck: false
               })}
             />
             <div className="autocomplete-dropdown-container">
+              {this.renderFlash()}
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion, i) => {
                 if (i < 3) {

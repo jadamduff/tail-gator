@@ -12,12 +12,21 @@ class Order extends Component {
       divClasses: {
         orderContainer: ['fade-in-fast', 'inner-active-order-container']
       },
-      placeHolderText: 'Enter a tailgate location...'
+      placeHolderText: 'Enter a tailgate location...',
+      flash: false
     }
   }
 
   handleBtnClick = () => {
-    this.props.updateOrderStatus(this.props.order.order.id, 'Submitted')
+    if (this.props.order.order.address !== '') {
+      this.props.updateOrderStatus(this.props.order.order.id, 'Submitted')
+    } else {
+      this.setState({
+        flash: 'Location Required'
+      })
+      console.log('Location Required')
+    }
+
   }
 
   render() {
@@ -30,7 +39,7 @@ class Order extends Component {
           <div className="active-order-total-amount">{this.props.order.order.display_total}</div>
         </div>
         <div className="active-order-location-input-container">
-          <LocationSearchInput orderId={this.props.order.order.id} address={this.props.order.order.address}/>
+          <LocationSearchInput orderId={this.props.order.order.id} address={this.props.order.order.address} flash={this.state.flash} />
         </div>
         <div className="active-order-submit-btn" onClick={this.handleBtnClick}>FEED THE GATORS</div>
       </div>

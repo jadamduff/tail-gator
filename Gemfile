@@ -20,6 +20,8 @@ gem 'foreman', '~> 0.82.0'
 
 gem 'knock'
 
+gem 'braintree', '~> 2.33.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
