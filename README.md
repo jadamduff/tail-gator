@@ -1,82 +1,27 @@
-# README
+# TAILGATOR
 
+TAILGATOR is a web app that allows tailgators at sporting events to order on demand tailgating supplies like, hotdogs, hamburgers, charcoal, drinks, etc. to have delivered to their tailgate spot.
 
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+## Getting Started
 
-ruby '2.5.1'
+Fork and clone the repo at https://github.com/jadamduff/tail-gator. Once you've cloned the repo, run 'bundle install' and 'npm install'. Finally, run 'rake start' and navigate to the URL provided.
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+## Built With
 
-gem 'foreman', '~> 0.82.0'
+* [React](https://reactjs.org/)
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+* [Redux](https://redux.js.org/)
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+* [Ruby on Rails](https://rubyonrails.org/)
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+## Contributing
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+Bug reports and pull requests are welcome on GitHub at https://github.com/jadamduff/tail-gator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
+## Authors
 
-group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
+* **Adam Duff** - [GitHub](https://github.com/jadamduff)
 
+## License
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
-
-
-users
-products
-orders
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
