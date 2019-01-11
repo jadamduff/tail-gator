@@ -1,7 +1,8 @@
 export default function orderReducer(state = {
   activeOrderExists: false,
   order: {
-    id: null
+    id: null,
+    all_orders: []
   }
 }, action) {
   switch(action.type) {
@@ -54,7 +55,7 @@ export default function orderReducer(state = {
 
     case 'UPDATE_ORDER_LOCATION_REQUEST_SUCCESS':
       return action.order
-      
+
     case 'START_UPDATE_ORDER_STATUS_REQUEST':
       return state
 
@@ -69,6 +70,15 @@ export default function orderReducer(state = {
         }
       }
 
+    case 'START_GET_ALL_ORDERS_REQUEST':
+      return state
+
+    case 'GET_ALL_ORDERS_REQUEST_SUCCESS':
+      console.log('Orders',  action.orders)
+      return {
+        ...state,
+        all_orders: action.orders
+      }
     default:
       return state
   }

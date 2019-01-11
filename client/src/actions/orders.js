@@ -22,6 +22,7 @@ export function createOrder(user_id, product_id, product_quantity) {
 }
 
 export function addListItemToOrder(order_id, product_id, product_quantity) {
+  console.log('C')
   return (dispatch) => {
     dispatch({type: 'START_ADD_LIST_ITEM_TO_ORDER_REQUEST'});
     let body = JSON.stringify({product_id: product_id, product_quantity:product_quantity, request_type: 'Add List Item'});
@@ -37,11 +38,13 @@ export function addListItemToOrder(order_id, product_id, product_quantity) {
     )
     .then(response => response.json())
     .then((resp) => {
-      console.log(resp)
+      //console.log(resp)
+      console.log('D')
       dispatch({type: 'ADD_LIST_ITEM_TO_ORDER_REQUEST_SUCCESS', order: resp})
       return true
     })
   }
+  console.log('E')
 }
 
 export function updateOrderLocation(order_id, address, lat, lng) {
@@ -85,6 +88,27 @@ export function updateOrderStatus(order_id, status) {
     .then(resp => {
       console.log(resp)
       dispatch({type: 'UPDATE_ORDER_STATUS_REQUEST_SUCCESS', order: resp})
+    })
+  }
+}
+
+export function getAllOrders() {
+  return (dispatch) => {
+    dispatch({type: 'START_GET_ALL_ORDERS_REQUEST'});
+    return fetch('/api/v1/all_orders/',
+      {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+    .then(response => response.json())
+    .then(resp => {
+      console.log(resp)
+      dispatch({type: 'GET_ALL_ORDERS_REQUEST_SUCCESS', orders: resp})
+      return resp
     })
   }
 }

@@ -102,4 +102,10 @@ class V1::OrdersController < ApplicationController
     return total
   end
 
+  def all_orders
+    @orders = current_user.orders
+
+    render :json => @orders
+  end
+
 end

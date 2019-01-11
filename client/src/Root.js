@@ -6,6 +6,7 @@ import './index.css';
 
 import App from './components/containers/App'
 import LoginForm from './components/forms/LoginForm'
+import AllOrdersContainer from './components/containers/AllOrdersContainer'
 
 const Root = ({ store }) => {
 
@@ -15,6 +16,7 @@ const Root = ({ store }) => {
           <React.Fragment>
             <Route exact path="/" component={App} />
             <Route path="/login" component={LoginForm} />
+            <Route path="/all_orders" component={AllOrdersContainer} />
           </React.Fragment>
         </Router>
       </Provider>

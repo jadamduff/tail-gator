@@ -28,8 +28,12 @@ class QuantityForm extends Component {
         this.props.closeDrawer();
       }
     } else {
-      if (this.props.addListItemToOrder(this.props.activeOrderId, this.props.productId, parseInt(this.state.quantity)))
-      this.props.closeDrawer();
+      //if (
+        console.log('A')
+        this.props.addListItemToOrder(this.props.activeOrderId, this.props.productId, parseInt(this.state.quantity))
+        console.log('B')
+      //)
+      //this.props.closeDrawer();
     }
   }
 

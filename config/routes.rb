@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
       resources :orders, only: [:create, :update, :destroy]
       get 'active_order' => 'orders#active_order'
+      get 'all_orders' => 'orders#all_orders'
 
       resources :list_items, only: [:create, :destroy]
 
